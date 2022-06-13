@@ -18,7 +18,6 @@ html {
 p {
     color: var(--mainColor);
 }
-
 /* ---------- whole page background and layout ---------- */
 
 .whole-page {
@@ -51,7 +50,12 @@ p {
 .right-col {
     grid-area: right-col;
     backdrop-filter: blur(8px);
-    background-color: rgba(101, 96, 99, 0.2)
+    background-color: #100e0f;
+    opacity: 0.75;
+
+    display: grid;
+    grid-template-rows: 10vh 35vh 55vh;
+    grid-template-areas: "search-area" "cities" "weather-details";
 }
 
 /* ---------- title ---------- */
@@ -86,7 +90,7 @@ p {
     grid-template-rows: 100%;
     grid-template-columns: 20% 28% 10%;
     gap: 1vw;
-    grid-template-areas: "temperature info-text weather";
+    grid-template-areas: "temperature-text info-text weather";
     
     margin-left: 10%;
     margin-bottom: 10%;
@@ -94,18 +98,18 @@ p {
 }
 
 .info-wraper hr {
-    width: 150%;
+    width: 200%;
     color: var(--weatherColor);
 }
 
-.temperature {
+.temperature-text {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    grid-area: temperature;
+    grid-area: temperature-text;
 }
 
-.temperature p {
+.temperature-text p {
     font-size: 10vw;
     font-weight: 400;
     margin: 0;
@@ -139,9 +143,8 @@ p {
 }
 
 .upper-weather i {
-    color: var(--weatherColor);
+    color: var(--mainColor);
     font-size: 3vw;
-    opacity: 0.7;
 }
 
 .lower-weather p {
@@ -156,3 +159,173 @@ p {
 }
 
 /* ---------- right panel ---------- */
+.search-area {
+    grid-area: search-area;
+}
+
+.search-area form {
+    height: 100%;
+    display: grid;
+    grid-template-columns: auto 6vw;
+    grid-template-areas: "text-area button-area";
+}
+
+.text-area {
+    grid-area: text-area;
+    position: relative;
+}
+
+.text-area input {
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+    margin-left: 4vw;
+    width: calc(100% - 8vw);
+    font-size: 1.3vw;
+    letter-spacing: 1.7px;
+    padding-bottom: 1vh;
+    border: 0;
+    background: transparent;
+    border-bottom: 1px solid var(--mainColor);
+    color: var(--mainColor);
+}
+
+::placeholder {
+    color: var(--mainColor);
+}
+
+.text-area input:focus {
+    outline: none;
+    color: var(--mainColor);
+}
+
+.button-area {
+    grid-area: button-area;
+    background-color: var(--weatherColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+.button-area:hover {
+    opacity: 0.75;
+    cursor: pointer;
+}
+
+.button-area i {
+    font-size: 1.4vw;
+}
+
+.cities {
+    grid-area: cities;
+}
+
+.cities hr {
+    width: 75%;
+    margin-left: 4vw;
+    margin-top: 0;
+}
+
+.list {
+    margin-top: 7vh;
+    margin-left: 4vw;
+    font-size: 1.3vw;
+    color: var(--mainColor);
+    padding: 0;
+    margin-bottom: 4vh;
+    list-style: none;
+}
+
+.list li:not(:last-child) {
+    margin-bottom: 4vh;
+}
+
+.weather-details {
+    grid-area: weather-details;
+}
+
+.weather-details-list {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 70%  30%;
+    grid-template-rows: 15% 17% 17% 17% 17% 17%;
+    grid-template-areas: "weather-details-title empty"
+                         "clouds clouds-value"
+                         "humidity humidity-value"
+                         "wind wind-value"
+                         "temperature temperature-value"
+                         "apparent-temperature apparent-temperature-value";
+}
+
+.weather-details-list div {
+    font-size: 1.2vw;
+    display: flex;
+    align-items: center;
+}
+
+.weather-details-list div:nth-child(odd) {
+    padding-left: 4vw;
+}
+
+.weather-details-list div:nth-child(even) {
+    display: flex; 
+    flex-direction: row-reverse;
+    padding-right: 4vw;
+}
+
+.weather-details-title {
+    grid-area: weather-details-title;
+    color: var(--mainColor);
+}
+
+.weather-details-title h2 {
+    margin-top: 1vw;
+    font-size: 1.5vw;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.empty {
+    grid-area: empty;
+}
+
+.clouds {
+    grid-area: clouds;
+}
+
+.clouds-value {
+    grid-area: clouds-value;
+}
+
+.humidity {
+    grid-area: humidity;
+}
+
+.humidity-value {
+    grid-area: humidity-value;
+}
+
+.wind {
+    grid-area: wind;
+}
+
+.wind-value {
+    grid-area: wind-value;
+}
+
+.temperature {
+    grid-area: temperature;
+}
+
+.temperature-value {
+    grid-area: temperature-value;
+}
+
+.apparent-temperature {
+    grid-area: apparent-temperature;
+}
+
+.apparent-temperature-value {
+    grid-area: apparent-temperature-value;
+}

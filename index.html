@@ -20,8 +20,11 @@
 <body>
     <!-- container for whole page background -->
     <div class="whole-page">
+
+
         <!-- left column of website -->
         <div class="left-col">
+            
             <!-- website title -->
             <div class="title">
                 <h1>| Rain Drop</h1>
@@ -34,10 +37,12 @@
                     
                     <hr>
 
-                    <div class="temperature">
+                    <!-- temperature -->
+                    <div class="temperature-text">
                         <p>16°</p>
                     </div>
-
+                    
+                    <!-- Location and date -->
                     <div class="info-text">
 
                         <div class="upper-text">
@@ -49,7 +54,8 @@
                         </div>
 
                     </div>
-
+                    
+                    <!-- weather status and icon -->
                     <div class="weather">
 
                         <div class="upper-weather">
@@ -68,6 +74,97 @@
 
         <!-- right column of website -->
         <div class="right-col">
+<!-- seatch area -->
+<div class="search-area">
+    <form action="#">
+        <div class="text-area">
+            <input placeholder="Location" type="text">
+        </div>
+        <div class="button-area">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+    </form>
+</div>
+
+<!-- Cities -->
+<div class="cities">
+    <ul class="list">
+        <li>London</li>
+        <li>Manchester</li>
+        <li>New York</li>
+        <li>California</li>
+    </ul>
+
+    <hr>
+</div>
+
+<!-- weather details -->
+<div class="weather-details">
+    <div class="weather-details-list">
+        <div class="weather-details-title">
+            <h2>Weather details</h2>
+        </div>
+
+        <div class="empty">
+        </div>
+
+        <div class="clouds">
+            <p>
+                Clouds
+            </p>
+        </div>
+        <div class="clouds-value">
+            <p>
+                86%
+            </p>
+        </div>
+
+        <div class="humidity">
+            <p>
+                humidity
+            </p>
+        </div>
+        <div class="humidity-value">
+            <p>
+                26%
+            </p>
+        </div>
+
+        <div class="wind">
+            <p>
+                Wind
+            </p>
+        </div>
+        <div class="wind-value">
+            <p>
+                20 km/h
+            </p>
+        </div>
+
+        <div class="temperature">
+            <p>
+                temperature
+            </p>
+        </div>
+        <div class="temperature-value">
+            <p>
+                16°
+            </p>
+        </div>
+
+        <div class="apparent-temperature">
+            <p>
+                Apparent temperature
+            </p>
+        </div>
+        <div class="apparent-temperature-value">
+            <p>
+                19°
+            </p>
+        </div>
+    </div>
+</div>
+
         </div>
     </div>
 </body>
