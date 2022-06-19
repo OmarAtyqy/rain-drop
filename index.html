@@ -46,22 +46,20 @@
 
                 <div class="info-wraper">
                     
-                    <hr>
-
                     <!-- temperature -->
                     <div class="temperature-text">
-                        <p>16°</p>
+                        <p><span id="big-temp">16</span>°</p>
                     </div>
                     
                     <!-- Location and date -->
                     <div class="info-text">
 
                         <div class="upper-text">
-                            <p>London</p>
+                            <p id="city">London</p>
                         </div>
 
                         <div class="lower-text">
-                            <p>06:13 - Monday, 9th Sept '22</p>
+                            <p id="date">06:13 - Monday, 9th Sept '22</p>
                         </div>
 
                     </div>
@@ -74,7 +72,7 @@
                         </div>
 
                         <div class="lower-weather">
-                            <p>Rainy</p>
+                            <p id="status">Rainy</p>
                         </div>
 
                     </div>
@@ -92,7 +90,7 @@
                     <div class="text-area">
                         <input id="location" placeholder="Location" type="text">
                     </div>
-                    <div class="button-area" onclick="update_weather()">
+                    <div class="button-area" onclick="search_button()">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </div>
                 </form>
@@ -126,9 +124,7 @@
                         </p>
                     </div>
                     <div class="clouds-value">
-                        <p>
-                            86%
-                        </p>
+                        <p><span id="clouds">86</span>%</p>
                     </div>
 
                     <div class="humidity">
@@ -138,7 +134,7 @@
                     </div>
                     <div class="humidity-value">
                         <p>
-                            26%
+                            <span id="humidity">26</span>%
                         </p>
                     </div>
 
@@ -149,7 +145,7 @@
                     </div>
                     <div class="wind-value">
                         <p>
-                            20 km/h
+                            <span id="wind">20</span> m/s
                         </p>
                     </div>
 
@@ -160,7 +156,7 @@
                     </div>
                     <div class="temperature-value">
                         <p>
-                            16°
+                            <span id="small-temp">16</span>°
                         </p>
                     </div>
 
@@ -171,7 +167,7 @@
                     </div>
                     <div class="apparent-temperature-value">
                         <p>
-                            19°
+                            <span id="apparent-temp">19</span>°
                         </p>
                     </div>
                     </div>
