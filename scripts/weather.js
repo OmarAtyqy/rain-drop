@@ -5,8 +5,6 @@ setTimeout(function() {
 
 // return weather status of city
 function search_city(location, latitude, longitude) {
-    // api key
-    const api_key = "f821f24205353b0d2910fdc1bf40ce0f";
 
     // call link
     let call_link = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${api_key}&units=metric`;

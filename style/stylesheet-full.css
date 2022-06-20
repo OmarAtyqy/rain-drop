@@ -104,9 +104,7 @@ p {
 } */
 
 .temperature-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    margin: 0;
     grid-area: temperature-text;
 }
 
@@ -252,16 +250,19 @@ p {
 
 .cities {
     grid-area: cities;
+    position: relative;
 }
 
 .cities hr {
+    position: absolute;
+    bottom: 0;
     width: 75%;
     margin-left: 4vw;
     margin-top: 0;
 }
 
 .list {
-    margin-top: 7vh;
+    margin-top: 5vh;
     margin-left: 4vw;
     font-size: 1.3vw;
     color: var(--mainColor);
@@ -270,8 +271,19 @@ p {
     list-style: none;
 }
 
+.list li {
+    width: 75%;
+    padding: .6rem 0;
+}
+
+.list li:hover {
+    background-color: var(--mainColor);
+    color: var(--weatherColor);
+    cursor: pointer;
+}
+
 .list li:not(:last-child) {
-    margin-bottom: 4vh;
+    margin-bottom: 1vh;
 }
 
 .weather-details {
