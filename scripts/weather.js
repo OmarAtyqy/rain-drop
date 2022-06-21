@@ -1,5 +1,7 @@
+let history = new History(4);
+
 let ini_font;
-setTimeout(function() {
+setTimeout(function () {
     ini_font = parseFloat($("#city").css('fontSize'));
 }, 2300);
 
@@ -66,6 +68,13 @@ function search_button() {
         const longitude = cities_dic[location][1];
 
         search_city(location, latitude, longitude);
+
+        // add item to history
+        let item = new HistoryItem(location, latitude, longitude);
+        history.addItem(item);
+
+        // display new history
+        history.displayItems();
     }
 
 }

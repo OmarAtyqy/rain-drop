@@ -2,7 +2,7 @@
 :root {
     --mainColor: #ffffff;
     --secondaryColor: #081B27;
-    --weatherColor: #7B8F8E; 
+    --weatherColor: #7B8F8E;
 }
 
 
@@ -22,13 +22,14 @@ p {
 .hide {
     display: none;
 }
+
 /* ---------- whole page background and layout ---------- */
 
 .whole-page {
     width: 100vw;
     height: 100vh;
 
-    background: url("../images/rainy.jpg") no-repeat center center fixed; 
+    background: url("../images/rainy.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -46,7 +47,7 @@ p {
 
     display: grid;
     grid-template-rows: 20% 80%;
-    grid-template-areas: "title" "info";
+    grid-template-areas: "title""info";
 }
 
 /* ---------- right side ---------- */
@@ -59,7 +60,7 @@ p {
 
     display: grid;
     grid-template-rows: 10vh 35vh 55vh;
-    grid-template-areas: "search-area" "cities" "weather-details";
+    grid-template-areas: "search-area""cities""weather-details";
 }
 
 /* ---------- title ---------- */
@@ -97,11 +98,6 @@ p {
     grid-template-columns: 1fr fit-content 1fr;
     grid-template-areas: "temperature-text info-text weather";
 }
-
-/* .info-wraper hr {
-    width: 200%;
-    color: var(--weatherColor);
-} */
 
 .temperature-text {
     margin: 0;
@@ -208,8 +204,10 @@ p {
 
     height: 50vh;
     margin-left: 4vw;
-    overflow-y: hidden; /* Hide vertical scrollbar */
-    overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow-y: hidden;
+    /* Hide vertical scrollbar */
+    overflow-x: hidden;
+    /* Hide horizontal scrollbar */
 }
 
 .autocomplete-items div {
@@ -293,14 +291,14 @@ p {
 .weather-details-list {
     height: 100%;
     display: grid;
-    grid-template-columns: 70%  30%;
+    grid-template-columns: 70% 30%;
     grid-template-rows: 15% 17% 17% 17% 17% 17%;
     grid-template-areas: "weather-details-title empty"
-                         "clouds clouds-value"
-                         "humidity humidity-value"
-                         "wind wind-value"
-                         "temperature temperature-value"
-                         "apparent-temperature apparent-temperature-value";
+        "clouds clouds-value"
+        "humidity humidity-value"
+        "wind wind-value"
+        "temperature temperature-value"
+        "apparent-temperature apparent-temperature-value";
 }
 
 .weather-details-list div {
@@ -314,7 +312,7 @@ p {
 }
 
 .weather-details-list div:nth-child(even) {
-    display: flex; 
+    display: flex;
     flex-direction: row-reverse;
     padding-right: 4vw;
 }

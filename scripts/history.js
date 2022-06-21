@@ -4,22 +4,17 @@ class HistoryItem {
         this.location = location;
         this.lat = lat;
         this.lgt = lgt;
-        this.data = getData();
-    };
-
-    getData() {
-        // call link
-        let call_link = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${api_key}&units=metric`;
-
-        // make api call and read json result
-        $.getJSON(call_link, function (data) {
-            return data;
-        });
     };
 
     getElement() {
         const name = this.location.charAt(0).toUpperCase() + this.location.slice(1);
-        return `<li>${name}</li>`
+        let li = document.createElement("li");
+        let textNode = document.createTextNode(name);
+        li.appendChild(textNode);
+        li.onclick = () => {
+            search_city(this.location, this.lat, this.lgt);
+        }
+        return li;
     };
 }
 
@@ -30,10 +25,21 @@ class History {
     };
 
     addItem(item) {
+        if (this.list.length >= this.limit) {
+            this.list.shift();
+        }
         this.list.push(item);
     };
 
     displayItems() {
+        //remove all items
+        $("#history").empty();
 
+        // adding items to DOM
+        let ul = document.getElementById("history");
+        let copy = this.list.slice().reverse();
+        for (let x of copy) {
+            ul.appendChild(x.getElement());
+        }
     };
 }

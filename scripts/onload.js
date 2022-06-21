@@ -34,7 +34,7 @@ function animate_info(coef) {
 
 $(document).ready(function () {
 
-    // call link
+    // call link for london (default city)
     let call_link = `https://api.openweathermap.org/data/2.5/weather?lat=51.5072&lon=-0.1275&appid=${api_key}&units=metric`;
 
     // make api call and read json result
