@@ -1,4 +1,4 @@
-const cities_dic = {
+let cities_dic = {
 	"tokyo": [35.6839, 139.7744],
 	"jakarta": [-6.2146, 106.8451],
 	"delhi": [28.6667, 77.2167],
@@ -39186,6 +39186,14 @@ const cities_dic = {
 	"timmiarmiut": [62.5333, -42.2167],
 	"nordvik": [74.0165, 111.5100],
 }
+
+cities_dic = Object.keys(cities_dic).sort().reduce(
+	(obj, key) => {
+		obj[key] = cities_dic[key];
+		return obj;
+	},
+	{}
+);
 
 function capitalizeFirstLetter(str) {
 	const arr = str.split(" ");
