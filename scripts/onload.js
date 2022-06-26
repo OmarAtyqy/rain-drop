@@ -1,6 +1,60 @@
 // api key
 var api_key = "f821f24205353b0d2910fdc1bf40ce0f";
 
+// month names
+var monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+];
+
+// function to return date string formaatted
+function get_date() {
+    let date = new Date();
+    let day_int = date.getDate();
+    let day_string = date.toLocaleString('en-us', { weekday: 'long' });
+    let year = date.getFullYear().toString().slice(2, 4);
+    let month = monthNames[date.getMonth()].slice(0, 5);
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+
+    let ordinal = "";
+
+    // format day
+    if (day_int < 10) {
+        switch (day_int) {
+            case 1:
+                ordinal = "st";
+                break;
+            case 2:
+                ordinal = "nd";
+                break;
+            case 3:
+                ordinal = "rd";
+                break;
+            default:
+                ordinal = "th";
+                break;
+        }
+    }
+    else {
+        switch (day_int.toString()[1]) {
+            case "1":
+                ordinal = "st";
+                break;
+            case "2":
+                ordinal = "nd";
+                break;
+            case "3":
+                ordinal = "rd";
+                break;
+            default:
+                ordinal = "th";
+                break;
+        }
+    }
+
+    return `${hours}:${minutes} - ${day_string}, ${day_int}${ordinal} ${month} '${year}`
+}
+
 function animate_info(coef) {
     // start weather details as shifted and hidden and get their initial condition
     let temperature_text_p = $(".temperature-text p").css('marginBottom');
@@ -41,12 +95,13 @@ $(document).ready(function () {
     $.getJSON(call_link, function (data) {
 
         // change big temperature
-        $("#big-temp").text(data["main"]["temp"].toString().slice(0, 2));
+        $("#big-temp").text(data["main"]["feels_like"].toString().slice(0, 2));
 
         // change city name
         $("#city").text(capitalizeFirstLetter("London"));
 
         // change date
+        $("#date").text(get_date());
 
         // change status
         $("#status").text(data["weather"][0]["description"]);

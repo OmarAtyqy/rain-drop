@@ -15,7 +15,7 @@ function search_city(location, latitude, longitude) {
     $.getJSON(call_link, function (data) {
 
         // change big temperature
-        $("#big-temp").text(data["main"]["temp"].toString().slice(0, 2));
+        $("#big-temp").text(data["main"]["feels_like"].toString().slice(0, 2));
 
         // change city name
         $("#city").text(capitalizeFirstLetter(location));
@@ -27,6 +27,7 @@ function search_city(location, latitude, longitude) {
         $("#city").css('fontSize', `${new_font}px`);
 
         // change date
+        $("#date").text(get_date());
 
         // change status
         $("#status").text(data["weather"][0]["description"]);
