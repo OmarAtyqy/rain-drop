@@ -85,7 +85,6 @@ function animate_info(coef) {
     }, 2300 * coef);
 }
 
-
 $(document).ready(function () {
 
     // call link for london (default city)
@@ -105,6 +104,11 @@ $(document).ready(function () {
 
         // change status
         $("#status").text(data["weather"][0]["description"]);
+
+        // change icon
+        let icon = data["weather"][0]["icon"];
+        const url = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+        $("#icon").attr('src', url);
 
         // change clouds
         $("#clouds").text(data["clouds"]["all"]);

@@ -15,7 +15,11 @@ function search_city(location, latitude, longitude) {
     $.getJSON(call_link, function (data) {
 
         // change big temperature
-        $("#big-temp").text(data["main"]["feels_like"].toString().slice(0, 2));
+        let full_temp = data["main"]["feels_like"].toString();
+        if (full_temp.length > 3) {
+            full_temp = full_temp.slice(0, 2);
+        }
+        $("#big-temp").text(full_temp);
 
         // change city name
         $("#city").text(capitalizeFirstLetter(location));
@@ -24,6 +28,13 @@ function search_city(location, latitude, longitude) {
         if (number_words > 1) {
             new_font = new_font * 1.35;
         }
+        else {
+            if (location.length > 6) {
+                new_font = new_font * 0.8;
+                console.log("here");
+            }
+        }
+
         $("#city").css('fontSize', `${new_font}px`);
 
         // change date
@@ -31,6 +42,11 @@ function search_city(location, latitude, longitude) {
 
         // change status
         $("#status").text(data["weather"][0]["description"]);
+
+        // change icon
+        let icon = data["weather"][0]["icon"];
+        const url = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+        $("#icon").attr('src', url);
 
         // change clouds
         $("#clouds").text(data["clouds"]["all"]);
